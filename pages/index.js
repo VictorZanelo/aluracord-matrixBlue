@@ -63,6 +63,7 @@ export default HomePage;
 
 export default function PaginaInicial() {
     const username = 'VictorZanelo';
+    var radius ='full'
   
     return (
       <>
@@ -70,8 +71,8 @@ export default function PaginaInicial() {
         <Box
           styleSheet={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            backgroundColor: appConfig.theme.colors.primary[900],
-            backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)',
+            backgroundColor: appConfig.theme.colors.primary[600],
+            backgroundImage: 'url(https://images.pexels.com/photos/1257860/pexels-photo-1257860.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)',
             backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
           }}
         >
@@ -104,7 +105,11 @@ export default function PaginaInicial() {
               </Text>
   
               <TextField
+             
                 fullWidth
+                rounded ={`${radius}`}
+                placeholder='User name'
+                
                 textFieldColors={{
                   neutral: {
                     textColor: appConfig.theme.colors.neutrals[200],
@@ -118,9 +123,10 @@ export default function PaginaInicial() {
                 type='submit'
                 label='Entrar'
                 fullWidth
+                rounded='none'
                 buttonColors={{
                   contrastColor: appConfig.theme.colors.neutrals["000"],
-                  mainColor: appConfig.theme.colors.primary[500],
+                  mainColor: appConfig.theme.colors.primary[700],
                   mainColorLight: appConfig.theme.colors.primary[400],
                   mainColorStrong: appConfig.theme.colors.primary[600],
                 }}
@@ -147,8 +153,8 @@ export default function PaginaInicial() {
             >
               <Image
                 styleSheet={{
-                  borderRadius: '50%',
-                  marginBottom: '16px',
+                  borderRadius: '10%',
+                  marginBottom: '6px',
                 }}
                 src={`https://github.com/${username}.png`}
               />
