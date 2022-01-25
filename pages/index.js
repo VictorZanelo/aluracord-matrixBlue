@@ -1,5 +1,7 @@
 import appConfig  from'../config.json'
 import {Box, Button, Text, TextField, Image} from'@skynexui/components'
+import React from 'react';
+import {useRouter} from 'next/router'
 function GlobalStyle() {
     return (
       <style global jsx>{`
@@ -62,8 +64,9 @@ export default HomePage;
  */
 
 export default function PaginaInicial() {
-    const username = 'VictorZanelo';
-    var radius ='full'
+    //const username = 'VictorZanelo';
+    const [username, setUsername] = React.useState('VictorZanelo')
+    const roteamento = useRouter();
   
     return (
       <>
@@ -94,6 +97,13 @@ export default function PaginaInicial() {
             {/* Formulário */}
             <Box
               as="form"
+              onSubmit={(event) =>{
+                event.preventDefault();
+
+                roteamento.push('/chat')
+              }
+
+              }
               styleSheet={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                 width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
@@ -107,9 +117,13 @@ export default function PaginaInicial() {
               <TextField
              
                 fullWidth
-                rounded ={`${radius}`}
+                rounded ='md'
                 placeholder='User name'
-                
+              
+                onChange={function (event) {
+                    const uname = event.target.value
+                    setUsername(uname)
+                }}
                 textFieldColors={{
                   neutral: {
                     textColor: appConfig.theme.colors.neutrals[200],
@@ -123,7 +137,7 @@ export default function PaginaInicial() {
                 type='submit'
                 label='Entrar'
                 fullWidth
-                rounded='none'
+                rounded='md'
                 buttonColors={{
                   contrastColor: appConfig.theme.colors.neutrals["000"],
                   mainColor: appConfig.theme.colors.primary[700],
@@ -153,13 +167,14 @@ export default function PaginaInicial() {
             >
               <Image
                 styleSheet={{
-                  borderRadius: '10%',
+                  borderRadius: '50%',
                   marginBottom: '6px',
                 }}
                 src={`https://github.com/${username}.png`}
               />
               <Text
                 variant="body4"
+                
                 styleSheet={{
                   color: appConfig.theme.colors.neutrals[200],
                   backgroundColor: appConfig.theme.colors.neutrals[900],
