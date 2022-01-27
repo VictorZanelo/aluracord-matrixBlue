@@ -28,7 +28,6 @@ function GlobalStyle() {
   }
 
 export default function MyApp({ Component, pageProps }) {
-    console.log('ta em tudo');
     return(
         <>
          <GlobalStyle/>

@@ -3,15 +3,15 @@ import React from 'react';
 import appConfig from '../config.json';
 
 export default function ChatPage() {
-    // Sua lógica vai aqui
+        const [mensagem,setMensagem] = React.useState();
 
-    // ./Sua lógica vai aqui
+
     return (
         <Box
             styleSheet={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 backgroundColor: appConfig.theme.colors.primary[500],
-                backgroundImage: `url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)`,
+                backgroundImage: `url(https://images.pexels.com/photos/1257860/pexels-photo-1257860.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)`,
                 backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                 color: appConfig.theme.colors.neutrals['000']
             }}
@@ -43,8 +43,8 @@ export default function ChatPage() {
                         padding: '16px',
                     }}
                 >
-
-                    {/* <MessageList mensagens={[]} /> */}
+                    Ta mudando: {mensagem}
+                   {/*  <MessageList mensagens={[]} /> */}
 
                     <Box
                         as="form"
@@ -54,6 +54,15 @@ export default function ChatPage() {
                         }}
                     >
                         <TextField
+                            value={mensagem}
+
+                            onChange={(event)=>{
+
+                                const valor = event.target.value;
+                                setMensagem(valor)
+                            }}
+
+
                             placeholder="Insira sua mensagem aqui..."
                             type="textarea"
                             styleSheet={{
