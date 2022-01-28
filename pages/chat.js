@@ -1,4 +1,5 @@
-import { Box, Text, TextField, Image, Button } from "@skynexui/components";
+import { Box, Text, TextField, Image,Button} from "@skynexui/components";
+//import Buttin from "@mui/material/Button";
 import React from "react";
 import appConfig from "../config.json";
 
@@ -9,7 +10,7 @@ export default function ChatPage() {
   function handleNovaMensagem(novaMensagem) {
     const objmensagem = {
       id: listaMensagens.length + 1,
-      de: "virtu",
+      de: "VictorZanelo",
       texto: novaMensagem,
     };
     setListaMensagens([objmensagem, ...listaMensagens]);
@@ -145,8 +146,8 @@ function MessageList(props) {
       tag="ul"
       styleSheet={{
         overflow: "scroll",
-        overflowY: "hidden",
-        overflowX: "hidden",
+        /* overflowY: "hidden",
+        overflowX: "hidden", */
         display: "flex",
         flexDirection: "column-reverse",
         flex: 1,
@@ -182,7 +183,7 @@ function MessageList(props) {
                   display: "inline-block",
                   marginRight: "8px",
                 }}
-                src={`https://github.com/VictorZanelo.png`}
+                src={`https://github.com/${mensagem.de}.png`}
               />
               <Text tag="strong">{mensagem.de}</Text>
               <Text
@@ -203,3 +204,4 @@ function MessageList(props) {
     </Box>
   );
 }
+
